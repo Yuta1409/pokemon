@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pokemon List{% endblock %}
+
+{% block body %}
+    <h1>Pokemon List</h1>
+    {% for pokemon in pokemons %}
+        <h2>{{ pokemon.name }}</h2>
+        <p>{{ pokemon.type }}</p>
+    {% endfor %}
+{% endblock %}
