@@ -19,7 +19,7 @@ class PokemonController extends AbstractController
         ]);
     }
 
-    #[Route('/pokemon/list', name: 'app_pokemon_list')]
+    #[Route('/list', name: 'app_pokemon_list')]
     public function list(PokemonRepository $pokemonRepository): Response
     {
         $pokemons = $pokemonRepository->findAll();
