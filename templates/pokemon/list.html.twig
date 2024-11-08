@@ -1,11 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pokemon List{% endblock %}
+{% block title %}Pokedex{% endblock %}
 
 {% block body %}
-    <h1>Pokemon List</h1>
-    {% for pokemon in pokemons %}
-        <h2>{{ pokemon.name }}</h2>
-        <p>{{ pokemon.type }}</p>
-    {% endfor %}
+    <h1>Ton Pokedex</h1>
+    <a href="{{ path('app_pokemon_create') }}">Créer un nouveau pokemon !</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pokemon in pokemons %}
+            <tr>
+                <td>{{ pokemon.id }}</td>
+                <td>{{ pokemon.name }}</td>
+                <td>{{ pokemon.type }}</td>
+                <td>
+                    <a href = "{{ path('app_pokemon_show', {id: pokemon.id}) }}">Voir</a>
+                    <a href="{{ path('app_pokemon_edit', {id: pokemon.id}) }}">Modifier</a>
+                    <a href="{{ path('app_pokemon_delete', {id: pokemon.id}) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

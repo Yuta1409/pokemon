@@ -15,11 +15,4 @@ class PokemonRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Pokemon::class);
     }
-
-    public function findAll(): array
-    {
-        return $this->createQueryBuilder('p')
-            ->getQuery()
-            ->getResult();
-    }
 }
