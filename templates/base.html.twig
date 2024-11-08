@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Bienvenue!{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('templates/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
 </head>
 <body class="{{ app.request.attributes.get('_route') }}">
-{% block body %}{% endblock %}
+<header>
+    <nav>
+        <ul>
+            <li><a href="{{ path('app_pokemon_list') }}">Pokedex</a></li>
+            <li><a href="{{ path('app_pokemon_create') }}">Créer un Pokemon</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block body %}{% endblock %}
+</main>
+<footer>
+    <p>&copy; 2023 Pokemon App</p>
+</footer>
 </body>
 </html>

@@ -12,15 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PokemonController extends AbstractController
 {
-    #[Route('/', name: 'app_pokemon')]
-    public function indexPokemon(): Response
-    {
-        return $this->render('pokemon/index.html.twig', [
-            'controller_name' => 'PokemonController',
-        ]);
-    }
-
-    #[Route('/list', name: 'app_pokemon_list')]
+    #[Route('/', name: 'app_pokemon_list')]
     public function list(PokemonRepository $pokemonRepository): Response
     {
         $pokemons = $pokemonRepository->findAll();

@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Description du pokemon{% endblock %}
+{% block title %}Description du Pokemon{% endblock %}
 
 {% block body %}
-    <h1>{{ pokemon.name }}</h1>
-    <p>Type: {{ pokemon.type }}</p>
-    <a href="{{ path('app_pokemon_edit', {id: pokemon.id}) }}">Modifier</a>
-    <a href="{{ path('app_pokemon_delete', {id: pokemon.id}) }}">Supprimer</a>
-    <a href="{{ path('app_pokemon_list') }}">Revenir au pokedex</a>
+    <div class="pokemon-details">
+        <h1>{{ pokemon.name }}</h1>
+        <p>Type: {{ pokemon.type }}</p>
+        <div class="actions">
+            <a href="{{ path('app_pokemon_edit', {id: pokemon.id}) }}">Modifier</a>
+            <a href="{{ path('app_pokemon_delete', {id: pokemon.id}) }}">Supprimer</a>
+        </div>
+        <a href="{{ path('app_pokemon_list') }}">Revenir au Pokedex</a>
+    </div>
 {% endblock %}
